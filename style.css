@@ -1,0 +1,477 @@
+/* ==========================================================================
+   EXPOSIÇÃO ESCOLAR • DIA DA CONSCIÊNCIA NEGRA
+   Folha de Estilos Unificada (style.css)
+   Design: Exposição Cultural / Memorial Digital
+   Paleta: Carvão / Terra Escuro com Destaques em Ouro Imperial e Âmbar
+   ========================================================================== */
+
+/* Importação de Tipografia de Alta Legibilidade */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Paleta de Cores - Terra, Carvão e Dourado */
+  --bg-deep: #0e0d0c;
+  --bg-surface: #171513;
+  --bg-card: #1f1b18;
+  --bg-card-secondary: #26211d;
+  --border-gold: rgba(212, 175, 55, 0.35);
+  --border-gold-subtle: rgba(212, 175, 55, 0.18);
+  --gold-primary: #d4af37;
+  --gold-light: #f3cf65;
+  --gold-accent: #e5b94c;
+  --gold-muted: #ab8e39;
+
+  /* Tipografia */
+  --text-main: #f5f1ea;
+  --text-body: #ded7ce;
+  --text-muted: #9e9589;
+  --text-gold: #e4be5c;
+
+  /* Fontes */
+  --font-title: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Efeitos e Sombras */
+  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-gold-subtle);
+  --shadow-photo: 0 14px 35px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--border-gold);
+  --radius-card: 22px;
+  --radius-photo: 16px;
+  --radius-badge: 50px;
+}
+
+/* Reset Básico e Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 65%),
+    radial-gradient(circle at 85% 90%, rgba(139, 87, 42, 0.07) 0%, transparent 60%),
+    radial-gradient(circle at 15% 50%, rgba(40, 30, 25, 0.8) 0%, transparent 100%);
+  background-attachment: fixed;
+  color: var(--text-body);
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px 48px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container Principal Mobile-First */
+.expo-wrapper {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Cartão Centralizado da Exposição */
+.expo-card {
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-surface) 100%);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-gold);
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalhe Decorativo Superior Dourado */
+.expo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-primary) 50%, transparent 100%);
+}
+
+/* Cabeçalho da Exposição Escolar */
+.expo-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.expo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-badge);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.expo-badge-icon {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.category-tag {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-gold);
+}
+
+/* Moldura do Retrato / Foto */
+.portrait-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-photo);
+  overflow: hidden;
+  box-shadow: var(--shadow-photo);
+  background-color: var(--bg-deep);
+  border: 2px solid rgba(212, 175, 55, 0.45);
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Título e Subtítulo */
+.expo-identity {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.expo-title {
+  font-family: var(--font-title);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.expo-subtitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--gold-primary);
+  letter-spacing: 0.02em;
+}
+
+/* Divisor Decorativo Cultural */
+.expo-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px 0 24px;
+}
+
+.expo-divider::before,
+.expo-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+}
+
+.expo-divider-symbol {
+  color: var(--gold-accent);
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* Conteúdo Textual / Biografia */
+.expo-content {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  text-align: left;
+}
+
+.expo-content p {
+  margin-bottom: 16px;
+}
+
+.expo-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tópicos Especiais (Ex.: Ayrson Heráclito) */
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.topic-item {
+  background: rgba(255, 255, 255, 0.025);
+  border-left: 3px solid var(--gold-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  transition: transform 0.2s ease, border-left-color 0.2s ease;
+}
+
+.topic-item strong {
+  display: block;
+  font-family: var(--font-sans);
+  color: var(--gold-light);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.topic-item em {
+  font-style: italic;
+  color: var(--text-main);
+}
+
+/* Seções Temáticas e Obras de Destaque */
+.expo-section-title {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin: 26px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expo-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.4), transparent);
+}
+
+.works-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.works-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-body);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.works-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--gold-primary);
+  font-size: 0.78rem;
+}
+
+.works-list strong {
+  color: var(--text-main);
+}
+
+.works-list em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+/* Galeria de Obras com Legenda (Ex.: Ayrson Heráclito) */
+.artwork-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.artwork-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.25s ease;
+  width: 100%;
+}
+
+.artwork-card:hover {
+  border-color: var(--border-gold);
+}
+
+.artwork-frame {
+  width: 100%;
+  background: #0c0b0a;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork-frame img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain; /* Exibe a imagem inteira sem nenhum corte */
+  display: block;
+  margin: 0 auto;
+}
+
+.artwork-caption {
+  padding: 14px 18px;
+  background: rgba(14, 13, 12, 0.7);
+}
+
+.artwork-caption .artwork-title {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.artwork-caption .artwork-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* Rodapé Cultural e Institucional da Exposição (Sem links de navegação) */
+.expo-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border-gold-subtle);
+  text-align: center;
+}
+
+.expo-footer-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 4px;
+}
+
+.expo-footer-info {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Animações e Transições */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes Responsivos e Telas Maiores */
+@media (min-width: 480px) {
+  .expo-card {
+    padding: 40px 36px;
+  }
+
+  .expo-title {
+    font-size: 2.35rem;
+  }
+
+  .portrait-container {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding: 16px 10px 36px;
+  }
+
+  .expo-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .expo-title {
+    font-size: 1.8rem;
+  }
+
+  .expo-content {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .artwork-caption {
+    padding: 12px 14px;
+  }
+}
+
+/* Estilos de Impressão */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    padding: 0;
+  }
+
+  .expo-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    color: #111111 !important;
+  }
+
+  .expo-title, .topic-item strong, .category-tag, .expo-subtitle {
+    color: #000000 !important;
+  }
+
+  .expo-content {
+    color: #222222 !important;
+  }
+}
